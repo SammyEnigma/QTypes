@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/QtQmlControls">
+        <file alias="SearchListView.qml">SearchListView.qml</file>
+    </qresource>
+</RCC>
