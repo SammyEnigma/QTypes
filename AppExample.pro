@@ -1,16 +1,19 @@
 QT +=  quick quickcontrols2
 CONFIG += c++11
 
-# [QtQmlControls] ----------------------------------------------
+################################################################
 # Include in your project
+# [QtQmlControls] ----------------------------------------------
 
 # Qt modules
 QT += quickcontrols2
 
 # Qml RESOURCES to QtQmlControls sources
-RESOURCES += QtQmlControls/qtqmlcontrols.qrc
+RESOURCES += QtQmlControls/qtqmlcontrols.qrc \
+    App.qrc \
 
 # [END] --------------------------------------------------------
+################################################################
 
 
 # The following define makes your compiler emit warnings if you use
@@ -27,7 +30,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         AppExampleFiles/main.cpp
 
-RESOURCES += qml.qrc
+RESOURCES += \
+    Examples/Examples.qrc \
+    qtquickcontrols2.conf \
+    AppExampleFiles/icons/back.png \
+    AppExampleFiles/icons/drawer.png \
+    AppExampleFiles/images/arrow.png
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =

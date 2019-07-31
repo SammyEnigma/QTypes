@@ -20,7 +20,7 @@ ApplicationWindow {
             anchors.fill: parent
 
             ToolButton {
-                icon.name: stackView.depth > 1 ? "back" : "drawer"
+                icon.source: stackView.depth > 1 ? "qrc:/AppExampleFiles/icons/back.png" : "qrc:/AppExampleFiles/icons/drawer.png"
                 onClicked: {
                     if (stackView.depth > 1) {
                         stackView.pop()
@@ -32,8 +32,7 @@ ApplicationWindow {
             }
 
             Label {
-                id: titleLabel
-                text: listView.currentItem ? listView.currentItem.text : "QtQmlControls"
+                text: listView.currentItem ? listView.currentItem.text : ""
                 font.pixelSize: 20
                 elide: Label.ElideRight
                 horizontalAlignment: Qt.AlignHCenter
@@ -51,11 +50,9 @@ ApplicationWindow {
 
         ListView {
             id: listView
-
             focus: true
             currentIndex: -1
             anchors.fill: parent
-
             delegate: ItemDelegate {
                 width: parent.width
                 text: model.title
@@ -68,7 +65,7 @@ ApplicationWindow {
             }
 
             model: ListModel {
-                ListElement { title: qsTr("SearchListView"); source: "qrc:/AppExampleFiles/QtQmlControlsExamples/SearchListView.qml" }
+                ListElement { title: qsTr("SearchModel"); source: "qrc:/SearchModel.qml" }
             }
 
             ScrollIndicator.vertical: ScrollIndicator { }
@@ -78,6 +75,14 @@ ApplicationWindow {
     StackView {
         id: stackView
         anchors.fill: parent
-        initialItem: Pane { }
+        anchors.margins: 10
+        initialItem: Pane {
+            Label {
+                text: "QtQmlControls"
+                font.pixelSize: 20
+                elide: Label.ElideRight
+                anchors.centerIn: parent
+            }
+        }
     }
 }
