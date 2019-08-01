@@ -1,8 +1,15 @@
+import QtQuick 2.0
+import QtQuick 2.12
+import QtQml.Models 2.12
+import QtQuick.Controls 1.4
+import QtQuick.Controls 2.12
+
 /*!
     \qmltype SearchModel
-    \since 5.2
     \brief This type is a simple search in data models.
-    It can possible search in Data Models: ListModel or ObjectModel, or provided by C++ model classes If a C++ model class is used, it must be a subclass of QAbstractItemModel or a simple list.
+    It can possible search in Data Models: ListModel or ObjectModel, or provided
+    by C++ model classes If a C++ model class is used, it must be a subclass of
+    QAbstractItemModel or a simple list.
     Interact with QML Types ListView, Repeater, TableView and GridView
 
     For example:
@@ -25,12 +32,6 @@
 
     \sa TextInput
 */
-
-import QtQuick 2.0
-import QtQuick 2.12
-import QtQml.Models 2.12
-import QtQuick.Controls 1.4
-import QtQuick.Controls 2.12
 
 TextField {
     id: root
@@ -56,36 +57,46 @@ TextField {
     property variant list
 
     /*!
-        \qmlproperty Array SearchModel::ignoreProperties
+        \qmlproperty list<String> SearchModel::ignoreKeys
         List of ignore Keys in search
     */
-    property variant ignoreProperties: []
+    property variant ignoreKeys: []
 
     /*!
-        \qmlproperty int
-        Min search text length
+        \qmlproperty int SearchModel::minSearchLength
+        Min search text length default 1
     */
     property int minSearchLength: 1
 
     /*!
-        \qmlproperty bool
+        \qmlproperty bool SearchModel::caseSensitive
         Search case sensitive
     */
-    property bool caseSensitive: true
-
+    property bool caseSensitive: false
 
     // [properties] readonly ------------------------------------
-    /*!
-          \qmlproperty array SearchModel::keys
-          array with a found keys if model not empty
-      */
-    readonly property alias keys: __private.keys
 
+
+    // [signals] ------------------------------------
     /*!
-          \qmlproperty array SearchModel::results
-          array with a found results
+          \qmlsignal SearchModel::results(variant results)
+          list with a found results
       */
-    readonly property alias results: __private.results
+    signal results(variant list)
+
+    // [methods] ------------------------------------
+    /*!
+           \qmlmethod SearchModel::reset()
+           Reset the search and set default values
+    */
+    function reset() {
+        if (text.length) {
+            focus = false
+            list.model = __private.modelBackup
+            __private.clear()
+            text = ""
+        }
+    }
 
 
     // [Actions] ----------------------------------------------
@@ -98,34 +109,17 @@ TextField {
     }
 
     onTextChanged: {
-
-        if (!focus || __private.keys.length <= 0 || __private.modelBackupTotal <= 0)
+        if (!focus  || __private.keys.length <= 0 || __private.modelBackupTotal <= 0)
             return
 
-        if (text.length === 0)
-        {
+        if (text.length === 0 || text.length < minSearchLength)
             list.model = __private.modelBackup
-            return
-        }
-
-        __private.search()
-    }
-
-
-    /*!
-           \qmlmethod TextArea::reset()
-           reset the search and set default values
-    */
-    function reset() {
-        if (text.length > 0) {
-            focus = false
-            list.model = __private.modelBackup
-            __private.clear()
-            text = ""
-        }
+        else if (minSearchLength <= text.length)
+            __private.search()
     }
 
     // [private] type __private -------------------------------
+
     QtObject {
         id: __private
         property variant modelBackup
@@ -134,16 +128,6 @@ TextField {
         property variant results: null
         property int resultsTotal: 0
         property variant keys: []
-
-        function update() {
-            if(getModelType()) {
-                modelBackupTotal = getTotal(list.model)
-                if (modelBackupTotal > 0) {
-                    getKeys()
-                    modelBackup = list.model
-                }
-            }
-        }
 
         function getModelType() {
             if (list.model.toString().indexOf("QQmlListModel") !== -1)
@@ -161,20 +145,28 @@ TextField {
         }
 
         function getKeys() {
-            if (modelBackupTotal > 0) {
-                let tmp = modelType === 2 || modelType === 3 ? list.model.get(0) : list.model[0]
-                if (typeof list.model === "object")
-                {
-                    if (modelType == 3 || modelType == 1)
-                        keys = Object.keys(tmp).filter(value => !ignoreProperties.includes(value))
-                    else
-                        keys = Object.keys(tmp).filter(value => !ignoreProperties.includes(value) && typeof tmp[value] === "string")
+            const tmp = modelType > 1 ? list.model.get(0) : list.model[0]
+            if (typeof list.model === "object")
+            {
+                if (modelType == 3 || modelType == 1)
+                    keys = Object.keys(tmp).filter(value => !ignoreKeys.includes(value))
+                else
+                    keys = Object.keys(tmp).filter(value => !ignoreKeys.includes(value) && typeof tmp[value] === "string")
+            }
+        }
+
+        function update() {
+            if(getModelType()) {
+                modelBackupTotal = getTotal(list.model)
+                if (modelBackupTotal > 0) {
+                    getKeys()
+                    modelBackup = list.model
                 }
             }
         }
 
         function clear() {
-            if (modelType != 0)
+            if (modelType)
                 results = null
             keys = []
             modelType = 0
@@ -182,18 +174,14 @@ TextField {
             resultsTotal = 0
         }
 
-        function compareField(field, text) {
+        function compareField(field, text)
+        {
+            if (typeof field === "number")
+                field = field.toString()
+            else if (typeof field !== "string")
+                return false
 
-            if (typeof field !== "string")
-                if (typeof field === "number")
-                    field = field.toString()
-                else
-                    return false
-
-            if (caseSensitive)
-                return field.includes(text)
-
-            return field.toLowerCase().includes(text.toLowerCase())
+            return caseSensitive ? field.includes(text) : field.toLowerCase().includes(text.toLowerCase())
         }
 
         function createNewList() {
@@ -208,14 +196,16 @@ TextField {
             return [];
         }
 
-        function search(){
+        function search() {
             let modelTmp = createNewList()
             for (var i = 0; i < modelBackupTotal; ++i)
+            {
                 for (var j = 0; j < keys.length; ++j)
                 {
                     if (modelType === 1)
                     {
-                        if (compareField(modelBackup[i][keys[j]], text)){
+                        if (compareField(modelBackup[i][keys[j]], text))
+                        {
                             modelTmp.push(modelBackup[i])
                             break;
                         }
@@ -226,10 +216,12 @@ TextField {
                             break;
                         }
                 }
+            }
 
             results = modelTmp
             resultsTotal = getTotal(results)
             list.model = results
+            root.results(results)
         }
     }
 }

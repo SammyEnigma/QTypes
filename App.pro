@@ -3,14 +3,14 @@ CONFIG += c++11
 
 ################################################################
 # Include in your project
-# [QtQmlControls] ----------------------------------------------
+# [QTypes] ----------------------------------------------
 
 # Qt modules
 QT += quickcontrols2
 
-# Qml RESOURCES to QtQmlControls sources
-RESOURCES += QtQmlControls/qtqmlcontrols.qrc \
-    App.qrc \
+# Qml RESOURCES to QTypes sources
+RESOURCES += \
+    QTypes/QTypes.qrc
 
 # [END] --------------------------------------------------------
 ################################################################
@@ -28,14 +28,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        AppExampleFiles/main.cpp
+        App/main.cpp
 
 RESOURCES += \
+    App/App.qrc \
     Examples/Examples.qrc \
     qtquickcontrols2.conf \
-    AppExampleFiles/icons/back.png \
-    AppExampleFiles/icons/drawer.png \
-    AppExampleFiles/images/arrow.png
+    App/icons/back.png \
+    App/icons/drawer.png \
+    App/images/arrow.png
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =

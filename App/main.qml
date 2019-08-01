@@ -2,7 +2,6 @@ import QtQuick 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
-import QtQuick.Controls.Universal 2.12
 import Qt.labs.settings 1.0
 
 ApplicationWindow {
@@ -10,17 +9,13 @@ ApplicationWindow {
     width: 360
     height: 520
     visible: true
-    title: "QtQmlControls"
+    title: "QTypes"
 
     header: ToolBar {
         Material.foreground: "white"
 
-        RowLayout {
-            spacing: 20
-            anchors.fill: parent
-
             ToolButton {
-                icon.source: stackView.depth > 1 ? "qrc:/AppExampleFiles/icons/back.png" : "qrc:/AppExampleFiles/icons/drawer.png"
+                icon.source: stackView.depth > 1 ? "qrc:/App/icons/back.png" : "qrc:/App/icons/drawer.png"
                 onClicked: {
                     if (stackView.depth > 1) {
                         stackView.pop()
@@ -35,11 +30,9 @@ ApplicationWindow {
                 text: listView.currentItem ? listView.currentItem.text : ""
                 font.pixelSize: 20
                 elide: Label.ElideRight
-                horizontalAlignment: Qt.AlignHCenter
-                verticalAlignment: Qt.AlignVCenter
+                anchors.centerIn: parent
                 Layout.fillWidth: true
             }
-        }
     }
 
     Drawer {
@@ -65,7 +58,10 @@ ApplicationWindow {
             }
 
             model: ListModel {
-                ListElement { title: qsTr("SearchModel"); source: "qrc:/SearchModel.qml" }
+                ListElement { title: qsTr("SearchModel");            source: "qrc:/Examples/SearchModel/Simple.qml" }
+                ListElement { title: qsTr("SearchModel > Advanced"); source: "qrc:/Examples/SearchModel/Advanced.qml" }
+                ListElement { title: qsTr("Accordion");              source: "qrc:/Examples/Accordion/Simple.qml" }
+                ListElement { title: qsTr("Accordion > Advanced");   source: "qrc:/Examples/Accordion/Advanced.qml" }
             }
 
             ScrollIndicator.vertical: ScrollIndicator { }
@@ -78,10 +74,14 @@ ApplicationWindow {
         anchors.margins: 10
         initialItem: Pane {
             Label {
-                text: "QtQmlControls"
-                font.pixelSize: 20
-                elide: Label.ElideRight
                 anchors.centerIn: parent
+                bottomPadding: 40
+                font.pixelSize: 40
+                font.bold: true
+                leftPadding: 1
+                elide: Label.ElideRight
+                color: Material.primary
+                text: "QTypes"
             }
         }
     }

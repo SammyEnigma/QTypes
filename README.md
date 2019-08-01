@@ -1,41 +1,46 @@
-# QtQmlControls
-QtQmlControls is a set of Object Types through QML.
+# QTypes
+QType is a set of Object Types through QML.
 Is a easily way import a libary of Types in your own QML, provides many visual
 components and features to manipulate data.
-
 
 # Getting started
 
 ## Qt version
-requires Qt 5.12 or highter
+Requires Qt 5.12 or highter
 
 ## Object Types
- - [SearchModel](https://github.com/RicGuerra/QtQmlControls/blob/master/Examples/SearchModel.qml) - Search in Data Models
- 
+
+| Type   | Description |
+| ------ | ------ |
+| [SearchModel](https://github.com/RicGuerra/QType/tree/master/Examples/SearchModel)        | Search in Data Models.
+| [Accordion](https://github.com/RicGuerra/QType/tree/master/Examples/Accordion)            | Displays collapsible content panels in a limited space.
+
 
 Installation
 =====
 
-Copy the folder QtQmlControls/ to root of your project
-
-Pro file Dependencies
+ - Copy the folder QTypes/ to root of your project
+ - Pro file Dependencies:
 ```c#
     QT += quickcontrols2
-    RESOURCES += QtQmlControls/qtqmlcontrols.qrc
+    RESOURCES += QTypes/QTypes.qrc
 ```
 
-Example qml implementation
-```js
-    import QtQuick 2.12
-    import QtQuick.Controls 2.12
+Implementation
+=====
 
-    import "qrc:/QtQmlControls" as QtQmlControls
+QML Accordion example:
+
+```js
+    import "qrc:/QTypes" as QTypes
 
     Item {
-        QtQmlControls.SearchModel {
+        QTypes.Accordion {
+            model: ListModel {
+                  ListElement { title: "My title 1"; content: "Text content 1" }
+                  ListElement { title: "My title 2"; content: "Text content 2" }
+            }
         }
     }
 ```
 
-# Examples
-Checkout the [examples](https://github.com/RicGuerra/QtQmlControls/blob/master/Examples/)

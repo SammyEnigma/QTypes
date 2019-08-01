@@ -1,5 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file alias="SearchModel.qml">SearchModel.qml</file>
-    </qresource>
-</RCC>

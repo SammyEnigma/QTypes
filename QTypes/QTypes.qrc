@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/QTypes">
+        <file alias="SearchModel.qml">SearchModel/SearchModel.qml</file>
+        <file alias="Accordion.qml">Accordion/Accordion.qml</file>
+    </qresource>
+    <qresource prefix="/Resources"/>
+</RCC>

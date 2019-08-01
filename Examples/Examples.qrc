@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/Examples">
+        <file>SearchModel/Simple.qml</file>
+        <file>Accordion/Simple.qml</file>
+        <file>SearchModel/Advanced.qml</file>
+        <file>Accordion/Advanced.qml</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>SearchModel/README.md</file>
+        <file>Accordion/README.md</file>
+    </qresource>
+</RCC>
