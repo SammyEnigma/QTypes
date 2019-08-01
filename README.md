@@ -6,7 +6,7 @@ components and features to manipulate data.
 
 # Documentation
 
-https://qmlnet.github.io/
+https://
 
 # Getting started
 
