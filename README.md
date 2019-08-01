@@ -12,21 +12,15 @@ requires Qt 5.12 or highter
 Installation
 =====
 
-Copy folder QtQmlControls/ to root of your project
+Copy the folder QtQmlControls/ to root of your project
 
-
-
-Example
-=====
 Pro file Dependencies
-
 ```c#
     QT += quickcontrols2
     RESOURCES += QtQmlControls/qtqmlcontrols.qrc
 ```
 
-Example qml
-
+Example qml implementation
 ```js
     import QtQuick 2.12
     import QtQuick.Controls 2.12
