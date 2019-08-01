@@ -1,5 +1,5 @@
 # QtQmlControls
-QtQmlControls is set of Object Types through QML.
+QtQmlControls is a set of Object Types through QML.
 Is a easily way import a libary of Types in your own QML, provides many visual
 components and features to manipulate data.
 
@@ -38,4 +38,4 @@ Example qml implementation
 ```
 
 # Examples
-Checkout the [examples](https://github.com/QtQmlControls/examples)
+Checkout the [examples](https://github.com/RicGuerra/QtQmlControls/blob/master/Examples/)
