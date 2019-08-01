@@ -4,10 +4,6 @@ Is a easily way import a libary of Types in your own QML, provides many visual
 components and features to manipulate data.
 
 
-# Documentation
-
-https://
-
 # Getting started
 
 ## Qt version
@@ -18,14 +14,18 @@ Installation
 
 Copy folder QtQmlControls/ to root of your project
 
+
+
+Example
+=====
 Pro file Dependencies
 
-```c++
+```c#
     QT += quickcontrols2
     RESOURCES += QtQmlControls/qtqmlcontrols.qrc
+```
 
-
-Exemple qml import
+Example qml
 
 ```js
     import QtQuick 2.12
@@ -37,7 +37,7 @@ Exemple qml import
         QtQmlControls.SearchModel {
         }
     }
-
+```
 
 # Examples
 Checkout the [examples](https://github.com/QtQmlControls/examples)
