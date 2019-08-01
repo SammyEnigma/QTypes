@@ -9,6 +9,10 @@ components and features to manipulate data.
 ## Qt version
 requires Qt 5.12 or highter
 
+## Object Types
+ - [SearchModel](https://github.com/RicGuerra/QtQmlControls/blob/master/Examples/SearchModel.qml) - Search in Data Models
+ 
+
 Installation
 =====
 
