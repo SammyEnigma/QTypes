@@ -18,8 +18,8 @@ Interact with QML Types ListView, Repeater, TableView and GridView
 
 | Example   | Description |
 | ------ | ------ |
-| [Simple](https://github.com/RicGuerra/QType/tree/master/Examples/SearchModel/Simple.qml)           | Basic implementation
-| [Advanced](https://github.com/RicGuerra/QType/tree/master/Examples/Accordion/Advanced.qml)         | Button reset and search in multiple Data Models types
+| [Simple](https://github.com/RicGuerra/QTypes/tree/master/Examples/SearchModel/Simple.qml)           | Basic implementation
+| [Advanced](https://github.com/RicGuerra/QTypes/tree/master/Examples/Accordion/Advanced.qml)         | Button reset and search in multiple Data Models types
 
 
 

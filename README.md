@@ -12,8 +12,8 @@ Requires Qt 5.12 or highter
 
 | Type   | Description |
 | ------ | ------ |
-| [SearchModel](https://github.com/RicGuerra/QType/tree/master/Examples/SearchModel)        | Search in Data Models.
-| [Accordion](https://github.com/RicGuerra/QType/tree/master/Examples/Accordion)            | Displays collapsible content panels in a limited space.
+| [SearchModel](https://github.com/RicGuerra/QTypes/tree/master/Examples/SearchModel)        | Search in Data Models.
+| [Accordion](https://github.com/RicGuerra/QTypes/tree/master/Examples/Accordion)            | Displays collapsible content panels in a limited space.
 
 
 Installation
