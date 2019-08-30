@@ -42,7 +42,7 @@ ListView {
     readonly property string version: "1.0.0"
 
     /*!
-          \qmlproperty string Accordion::Accordion
+          \qmlproperty string Accordion::name
           string with name of this type
       */
     readonly property string name: "Accordion"

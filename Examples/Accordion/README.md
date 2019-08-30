@@ -17,7 +17,7 @@ QAbstractItemModel or a simple list.
 | Example   | Description |
 | ------ | ------ |
 | [Simple](https://github.com/RicGuerra/QTypes/tree/master/Examples/Accordion/Simple.qml)           | Basic implementation
-| [Advanced](https://github.com/RicGuerra/QTypes/tree/master/Examples/Accordion/Advanced.qml)       | Change Head and Body Item
+| [Advanced](https://github.com/RicGuerra/QTypes/tree/master/Examples/Accordion/Advanced.qml)       | Change head and body Component
 
 
 

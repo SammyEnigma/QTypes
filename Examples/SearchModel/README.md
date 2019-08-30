@@ -19,7 +19,7 @@ Interact with QML Types ListView, Repeater, TableView and GridView
 | Example   | Description |
 | ------ | ------ |
 | [Simple](https://github.com/RicGuerra/QTypes/tree/master/Examples/SearchModel/Simple.qml)           | Basic implementation
-| [Advanced](https://github.com/RicGuerra/QTypes/tree/master/Examples/Accordion/Advanced.qml)         | Button reset and search in multiple Data Models types
+| [Advanced](https://github.com/RicGuerra/QTypes/tree/master/Examples/SearchModel/Advanced.qml)         | Button reset and search in multiple Data Models types
 
 
 
@@ -41,14 +41,13 @@ This property holds the set of keys to igonre in search.
 
 ### minSearchLength: int
 
-The minimum length of the text to start the search filtring .
-By default, this property contains a value of 1.
+The minimum length of the text to start the search filtring (default: 1).
 
 ----
 
 ### caseSensitive: bool
 
-By default, search in model data is not case sensitive.
+By default, search in model data is not case sensitive (default: false).
 
 ----
 
