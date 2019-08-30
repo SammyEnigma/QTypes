@@ -25,7 +25,7 @@ ColumnLayout {
             id: searchModel
             Layout.fillWidth: true
             placeholderText: qsTr("Search")
-
+            highlight: true
             // id of ListView target
             list: list
         }

@@ -74,6 +74,12 @@ TextField {
     */
     property bool caseSensitive: false
 
+//    /*!
+//        \qmlproperty bool SearchModel::highlight
+//        Set the match text in result as bold
+//    */
+//    property bool highlight: false
+
     // [properties] readonly ------------------------------------
 
 
@@ -184,6 +190,42 @@ TextField {
             return caseSensitive ? field.includes(text) : field.toLowerCase().includes(text.toLowerCase())
         }
 
+//        function highlightResults(text) {
+//            let textLength = text.length
+//            for (var i = 0; i < resultsTotal; ++i)
+//            {
+//                for (var j = 0; j < keys.length; ++j)
+//                {
+//                    if (modelType === 1)
+//                    {
+//                        if (compareField(results[i][keys[j]], text)) {
+//                            let field = results[i][keys[j]]
+//                            if (typeof field === "number")
+//                                field = field.toString()
+//                            else if (typeof field !== "string")
+//                                continue;
+
+//                            let start = caseSensitive ? field.indexOf(text) : field.toLowerCase().indexOf(text.toLowerCase())
+//                            results[i][keys[j]] = field.slice(0, start) + "<b>" + field.slice(start, textLength) + "</b>" + field.slice(start + textLength, field.length);
+//                        }
+
+//                    } else {
+//                        if (compareField(results.get(i)[keys[j]], text)) {
+//                            let field = results.get(i)[keys[j]]
+//                            if (typeof field === "number")
+//                                field = field.toString()
+//                            else if (typeof field !== "string")
+//                                continue;
+
+//                            let start = caseSensitive ? field.indexOf(text) : field.toLowerCase().indexOf(text.toLowerCase())
+//                            results[i][keys[j]] = field.slice(0, start) + "<b>" + field.slice(start, textLength) + "</b>" + field.slice(start + textLength, field.length);
+//                        }
+//                    }
+
+//                }
+//            }
+//        }
+
         function createNewList() {
             if (modelType > 1) {
                 if (results) {
@@ -220,6 +262,10 @@ TextField {
 
             results = modelTmp
             resultsTotal = getTotal(results)
+
+//            if (resultsTotal > 0 && highlight)
+//                highlightResults(text)
+
             list.model = results
             root.results(results)
         }

@@ -1,6 +1,6 @@
 # Badge
 
-This type is a badges, our small count and labeling component.
+This type is a badges, our small count and labeling.
 
 
 **Import Statement**: import "qrc:/QTypes" as QTypes
