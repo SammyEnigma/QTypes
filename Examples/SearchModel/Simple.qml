@@ -20,7 +20,8 @@ ColumnLayout {
         Layout.fillHeight: true
 
         // ###########################################
-        // [2][ADD] - SearchModel Control
+        // [2][ADD] - SearchModel
+
         QTypes.SearchModel {
             id: searchModel
             Layout.fillWidth: true

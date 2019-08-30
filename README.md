@@ -1,4 +1,5 @@
 # QTypes
+### Introduction
 QType is a set of Object Types through QML.
 Is a easily way import a libary of Types in your own QML, provides many visual
 components and features to manipulate data.
@@ -12,11 +13,12 @@ Requires Qt 5.12 or highter
 
 | Type   | Description |
 | ------ | ------ |
-| [SearchModel](https://github.com/RicGuerra/QTypes/tree/master/Examples/SearchModel)        | Search in Data Models.
 | [Accordion](https://github.com/RicGuerra/QTypes/tree/master/Examples/Accordion)            | Displays collapsible content panels in a limited space.
+| [Badges](https://github.com/RicGuerra/QTypes/tree/master/Examples/Badge)                   | Small text container.
+| [SearchModel](https://github.com/RicGuerra/QTypes/tree/master/Examples/SearchModel)        | Search in Data Models.
 
 
-Installation
+Quick start
 =====
 
  - Copy the folder QTypes/ to root of your project

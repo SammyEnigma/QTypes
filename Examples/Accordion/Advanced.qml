@@ -18,10 +18,10 @@ ColumnLayout {
         Layout.fillHeight: true
 
         // ###########################################
-        // [2][ADD] - Accordion Control
+        // [2][ADD] - Accordion
         QTypes.Accordion {
             // Change the header of each accordion item
-            headerAccordionComponent: Control {
+            headerComponent: Control {
                 padding: 10
                 background: Rectangle{ color: selected ? "#000" : "gray" }
                 contentItem: Text {
@@ -32,7 +32,7 @@ ColumnLayout {
             }
 
             // Change the body of selected accordion item
-            bodyAccordionComponent: Control {
+            bodyComponent: Control {
                 padding: 10
                 background: Rectangle{
                     color: "#fff"

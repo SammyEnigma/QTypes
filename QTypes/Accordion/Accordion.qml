@@ -42,22 +42,22 @@ ListView {
     readonly property string version: "1.0.0"
 
     /*!
-          \qmlproperty string Accordion::Accordion
+          \qmlproperty string Accordion::name
           string with name of this type
       */
     readonly property string name: "Accordion"
 
     /*!
-          \qmlproperty string Accordion::header
+          \qmlproperty string Accordion::headerComponent
           This property holds the Component to header Accordion of each element
       */
-    property Component headerAccordionComponent: __private.header
+    property Component headerComponent: _private.header
 
     /*!
-          \qmlproperty string Accordion::body
+          \qmlproperty string Accordion::bodyComponent
           This property holds the Component to body Accordion of each element
       */
-    property Component bodyAccordionComponent: __private.body
+    property Component bodyComponent: _private.body
 
     delegate: Control {
         width: parent.width
@@ -69,7 +69,7 @@ ListView {
 
             Loader {
                 width: parent.width
-                sourceComponent: headerAccordionComponent
+                sourceComponent: headerComponent
                 property string title: typeof model.title !== "undefined" ? model.title : modelData.title
                 property bool selected: parent._selected
                 property int index: parent._index
@@ -82,7 +82,7 @@ ListView {
 
             Loader {
                 width: parent.width
-                sourceComponent: parent._selected ? bodyAccordionComponent : __private.empty
+                sourceComponent: parent._selected ? bodyComponent : _private.empty
                 property string content: typeof model.content !== "undefined" ? model.content : modelData.content
                 property bool selected: parent._selected
                 property int index: parent._index
@@ -90,10 +90,10 @@ ListView {
         }
     }
 
-    // [private] type __private -------------------------------
+    // [private] type _private -------------------------------
 
     QtObject {
-        id: __private
+        id: _private
 
         property Component empty: Item { }
 

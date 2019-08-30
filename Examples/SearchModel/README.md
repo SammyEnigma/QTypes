@@ -19,11 +19,17 @@ Interact with QML Types ListView, Repeater, TableView and GridView
 | Example   | Description |
 | ------ | ------ |
 | [Simple](https://github.com/RicGuerra/QTypes/tree/master/Examples/SearchModel/Simple.qml)           | Basic implementation
-| [Advanced](https://github.com/RicGuerra/QTypes/tree/master/Examples/Accordion/Advanced.qml)         | Button reset and search in multiple Data Models types
+| [Advanced](https://github.com/RicGuerra/QTypes/tree/master/Examples/SearchModel/Advanced.qml)         | Button reset and search in multiple Data Models types
 
 
 
 ## Properties
+
+### caseSensitive: bool
+
+By default, search in model data is not case sensitive (default: false)
+
+----
 
 ### list: variant
 
@@ -35,28 +41,22 @@ If a C++ model class is used, it must be a subclass of QAbstractItemModel or a s
 
 ### ignoreKeys: list<String>
 
-This property holds the set of keys to igonre in search.
+This property holds the set of keys to igonre in search
 
 ---
 
 ### minSearchLength: int
 
-The minimum length of the text to start the search filtring .
-By default, this property contains a value of 1.
+The minimum length of the text to start the search filtring (default: 1)
 
 ----
 
-### caseSensitive: bool
-
-By default, search in model data is not case sensitive.
-
-----
 
 ## Signals
 
 ### results(list)
 
-This signal is emitted when new results found.
+This signal is emitted when new results found
 
 ----
 
@@ -64,6 +64,6 @@ This signal is emitted when new results found.
 
 ### reset()
 
-Resets the list to the original list.
+Resets the list to the original list
 
 -----

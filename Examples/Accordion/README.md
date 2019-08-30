@@ -17,15 +17,24 @@ QAbstractItemModel or a simple list.
 | Example   | Description |
 | ------ | ------ |
 | [Simple](https://github.com/RicGuerra/QTypes/tree/master/Examples/Accordion/Simple.qml)           | Basic implementation
-| [Advanced](https://github.com/RicGuerra/QTypes/tree/master/Examples/Accordion/Advanced.qml)       | Change Head and Body Item
+| [Advanced](https://github.com/RicGuerra/QTypes/tree/master/Examples/Accordion/Advanced.qml)       | Change head and body Component
 
 
 
 ## Properties
 
-### headerAccordionComponent: Component
+### bodyComponent: Component
 
-This property holds the set of Header Component to each element of accordion.
+This property holds the set of body Component to selected item
+
+Including inherited properties:
+- index : int  - index of item in list
+
+----
+
+### headerComponent: Component
+
+This property holds the set of Header Component to each element of accordion
 
 Including inherited properties:
 
@@ -34,11 +43,3 @@ Including inherited properties:
 
 ----
 
-### bodyAccordionComponent: Component
-
-This property holds the set of body Component to selected item.
-
-Including inherited properties:
-- index : int  - index of item in list
-
-----

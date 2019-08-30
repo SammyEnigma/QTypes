@@ -43,7 +43,7 @@ TextField {
     readonly property string version: "1.0.0"
 
     /*!
-          \qmlproperty array SearchModel::SearchModel
+          \qmlproperty array SearchModel::name
           string with name of this type
       */
     readonly property string name: "SearchModel"
@@ -92,8 +92,8 @@ TextField {
     function reset() {
         if (text.length) {
             focus = false
-            list.model = __private.modelBackup
-            __private.clear()
+            list.model = _private.modelBackup
+            _private.clear()
             text = ""
         }
     }
@@ -103,25 +103,25 @@ TextField {
 
     onFocusChanged: {
         if (focus && text.length === 0) {
-            __private.clear()
-            __private.update()
+            _private.clear()
+            _private.update()
         }
     }
 
     onTextChanged: {
-        if (!focus  || __private.keys.length <= 0 || __private.modelBackupTotal <= 0)
+        if (!focus  || _private.keys.length <= 0 || _private.modelBackupTotal <= 0)
             return
 
         if (text.length === 0 || text.length < minSearchLength)
-            list.model = __private.modelBackup
+            list.model = _private.modelBackup
         else if (minSearchLength <= text.length)
-            __private.search()
+            _private.search()
     }
 
-    // [private] type __private -------------------------------
+    // [private] type _private -------------------------------
 
     QtObject {
-        id: __private
+        id: _private
         property variant modelBackup
         property int modelBackupTotal: 0
         property int modelType: 0 // 0 none | 1 - list QML Basic Type | 2 - ObjectModel | 3 - ListModel

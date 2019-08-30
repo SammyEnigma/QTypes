@@ -62,6 +62,8 @@ ApplicationWindow {
                 ListElement { title: qsTr("SearchModel > Advanced"); source: "qrc:/Examples/SearchModel/Advanced.qml" }
                 ListElement { title: qsTr("Accordion");              source: "qrc:/Examples/Accordion/Simple.qml" }
                 ListElement { title: qsTr("Accordion > Advanced");   source: "qrc:/Examples/Accordion/Advanced.qml" }
+                ListElement { title: qsTr("Badge");                  source: "qrc:/Examples/Badge/Simple.qml" }
+                ListElement { title: qsTr("Badge > Advanced");       source: "qrc:/Examples/Badge/Advanced.qml" }
             }
 
             ScrollIndicator.vertical: ScrollIndicator { }
