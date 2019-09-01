@@ -14,6 +14,7 @@ Requires Qt 5.12 or highter
 | Type   | Description |
 | ------ | ------ |
 | [Accordion](https://github.com/RicGuerra/QTypes/tree/master/Examples/Accordion)            | Displays collapsible content panels in a limited space.
+| [DropDown](https://github.com/RicGuerra/QTypes/tree/master/Examples/DropDown)              | Toggleable, contextual Menu.
 | [Badges](https://github.com/RicGuerra/QTypes/tree/master/Examples/Badge)                   | Small text container.
 | [SearchModel](https://github.com/RicGuerra/QTypes/tree/master/Examples/SearchModel)        | Search in Data Models.
 
@@ -28,10 +29,9 @@ Quick start
     RESOURCES += QTypes/QTypes.qrc
 ```
 
-Implementation
-=====
+## Qml Implementation
 
-QML Accordion example:
+Accordion example:
 
 ```js
     import "qrc:/QTypes" as QTypes

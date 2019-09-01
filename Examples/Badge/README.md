@@ -10,7 +10,18 @@ This type is a badges, our small count and labeling component.
 **Inherited By**: Rectangle
 
 
-## Examples
+## Example
+
+```js
+    import "qrc:/QTypes" as QTypes
+
+    Item {
+        QTypes.Badge {
+            text: "My badge text"
+            state: "danger"
+        }
+    }
+```
 
 | Example   | Description |
 | ------ | ------ |
@@ -18,6 +29,7 @@ This type is a badges, our small count and labeling component.
 | [Advanced](https://github.com/RicGuerra/QTypes/tree/master/Examples/Badge/Advanced.qml)         | Pill badge, Change colors and font size.
 
 
+----
 
 ## Properties
 

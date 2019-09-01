@@ -50,6 +50,7 @@ ApplicationWindow {
                 width: parent.width
                 text: model.title
                 highlighted: ListView.isCurrentItem
+                font.pixelSize: 12
                 onClicked: {
                     listView.currentIndex = index
                     stackView.push(model.source)
@@ -64,6 +65,8 @@ ApplicationWindow {
                 ListElement { title: qsTr("Accordion > Advanced");   source: "qrc:/Examples/Accordion/Advanced.qml" }
                 ListElement { title: qsTr("Badge");                  source: "qrc:/Examples/Badge/Simple.qml" }
                 ListElement { title: qsTr("Badge > Advanced");       source: "qrc:/Examples/Badge/Advanced.qml" }
+                ListElement { title: qsTr("DropDown");               source: "qrc:/Examples/DropDown/Simple.qml" }
+                ListElement { title: qsTr("DropDown > Advanced");    source: "qrc:/Examples/DropDown/Advanced.qml" }
             }
 
             ScrollIndicator.vertical: ScrollIndicator { }
@@ -75,6 +78,7 @@ ApplicationWindow {
         anchors.fill: parent
         anchors.margins: 10
         initialItem: Pane {
+
             Label {
                 anchors.centerIn: parent
                 bottomPadding: 40

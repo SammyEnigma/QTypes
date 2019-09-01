@@ -12,7 +12,20 @@ QAbstractItemModel or a simple list.
 **Inherited By**: ListView
 
 
-## Examples
+## Example
+
+```js
+    import "qrc:/QTypes" as QTypes
+
+    Item {
+        QTypes.Accordion {
+            model: ListModel {
+                ListElement { title: "Title 1"; content: " Content 1... "}
+                ListElement { title: "Title 1"; content: " Content 2... "}
+            }
+        }
+    }
+```
 
 | Example   | Description |
 | ------ | ------ |
@@ -20,6 +33,7 @@ QAbstractItemModel or a simple list.
 | [Advanced](https://github.com/RicGuerra/QTypes/tree/master/Examples/Accordion/Advanced.qml)       | Change head and body Component
 
 
+----
 
 ## Properties
 

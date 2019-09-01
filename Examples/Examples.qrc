@@ -6,10 +6,13 @@
         <file>Accordion/Advanced.qml</file>
         <file>Badge/Advanced.qml</file>
         <file>Badge/Simple.qml</file>
+        <file>DropDown/Advanced.qml</file>
+        <file>DropDown/Simple.qml</file>
     </qresource>
     <qresource prefix="/">
         <file>SearchModel/README.md</file>
         <file>Accordion/README.md</file>
         <file>Badge/README.md</file>
+        <file>DropDown/README.md</file>
     </qresource>
 </RCC>

@@ -14,7 +14,31 @@ Interact with QML Types ListView, Repeater, TableView and GridView
 **Inherited By**: TextField
 
 
-## Examples
+## Example
+
+```js
+    import "qrc:/QTypes" as QTypes
+
+    Item {
+        QTypes.SearchModel {
+            id: searchModel
+            placeholderText: qsTr("Search")
+            list: list
+        }
+
+        ListView {
+            id: list
+            delegate: ItemDelegate {
+                text: model.name
+            }
+
+            model: ListModel {
+                ListElement { name: "Açaí"; cost: 2.45; }
+                ListElement { name: "Apple"; cost: 1.05; }
+            }
+        }
+    }
+```
 
 | Example   | Description |
 | ------ | ------ |
@@ -22,6 +46,7 @@ Interact with QML Types ListView, Repeater, TableView and GridView
 | [Advanced](https://github.com/RicGuerra/QTypes/tree/master/Examples/SearchModel/Advanced.qml)         | Button reset and search in multiple Data Models types
 
 
+----
 
 ## Properties
 
