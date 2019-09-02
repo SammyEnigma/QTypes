@@ -1,13 +1,13 @@
 # DropDown
 
 This type are toggleable, contextual for displaying lists
-of MenuItems.
+of [MenuItems](https://doc.qt.io/qt-5/qml-qtquick-controls2-menuitem.html).
 
 **Import Statement**: import "qrc:/QTypes" as QTypes
 
-**Requires**: Qt 5.7 or highter
+**Requires**: Qt 5.12 or highter
 
-**Inherited By**: Menu
+**Inherits**: Menu
 
 ## Example
 
@@ -16,6 +16,7 @@ of MenuItems.
 
     Item {
         Button{
+            text: "My Button"
             onClicked: dropDown.toggle()
 
             QTypes.DropDown {
@@ -23,6 +24,9 @@ of MenuItems.
 
                 MenuItem {
                     text: "New..."
+                }
+                MenuItem {
+                    text: "Open..."
                 }
             }
         }
@@ -42,3 +46,9 @@ of MenuItems.
 
 Toggle the dropDown open or close the DropDown
 
+----
+
+### Including inherited
+ [Menu QML Type](https://doc.qt.io/qt-5/qml-qtquick-controls2-menu.html)
+
+----

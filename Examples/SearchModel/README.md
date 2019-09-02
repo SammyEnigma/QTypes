@@ -9,9 +9,9 @@ Interact with QML Types ListView, Repeater, TableView and GridView
 
 **Import Statement**: import "qrc:/QTypes" as QTypes
 
-**Requires**: Qt 5.7 or highter
+**Requires**: Qt 5.12 or highter
 
-**Inherited By**: TextField
+**Inherits**: TextField
 
 
 ## Example
@@ -92,3 +92,9 @@ This signal is emitted when new results found
 Resets the list to the original list
 
 -----
+
+### Including inherited
+ [TextField QML Type](https://doc.qt.io/qt-5/qml-qtquick-controls2-textfield.html
+
+----
+

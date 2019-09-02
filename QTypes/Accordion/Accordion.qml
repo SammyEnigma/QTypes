@@ -51,13 +51,13 @@ ListView {
           \qmlproperty string Accordion::headerComponent
           This property holds the Component to header Accordion of each element
       */
-    property Component headerComponent: _private.header
+    property Component headerComponent: __private.header
 
     /*!
           \qmlproperty string Accordion::bodyComponent
           This property holds the Component to body Accordion of each element
       */
-    property Component bodyComponent: _private.body
+    property Component bodyComponent: __private.body
 
     delegate: Control {
         width: parent.width
@@ -82,7 +82,7 @@ ListView {
 
             Loader {
                 width: parent.width
-                sourceComponent: parent._selected ? bodyComponent : _private.empty
+                sourceComponent: parent._selected ? bodyComponent : __private.empty
                 property string content: typeof model.content !== "undefined" ? model.content : modelData.content
                 property bool selected: parent._selected
                 property int index: parent._index
@@ -90,10 +90,10 @@ ListView {
         }
     }
 
-    // [private] type _private -------------------------------
+    // [private] -------------------------------
 
     QtObject {
-        id: _private
+        id: __private
 
         property Component empty: Item { }
 

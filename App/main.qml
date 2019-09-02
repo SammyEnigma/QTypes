@@ -67,6 +67,8 @@ ApplicationWindow {
                 ListElement { title: qsTr("Badge > Advanced");       source: "qrc:/Examples/Badge/Advanced.qml" }
                 ListElement { title: qsTr("DropDown");               source: "qrc:/Examples/DropDown/Simple.qml" }
                 ListElement { title: qsTr("DropDown > Advanced");    source: "qrc:/Examples/DropDown/Advanced.qml" }
+                ListElement { title: qsTr("ImageLoader");               source: "qrc:/Examples/ImageLoader/Simple.qml" }
+                ListElement { title: qsTr("ImageLoader > Advanced");    source: "qrc:/Examples/ImageLoader/Advanced.qml" }
             }
 
             ScrollIndicator.vertical: ScrollIndicator { }

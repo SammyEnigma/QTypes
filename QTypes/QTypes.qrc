@@ -1,9 +1,10 @@
 <RCC>
     <qresource prefix="/QTypes">
-        <file alias="SearchModel.qml">SearchModel/SearchModel.qml</file>
         <file alias="Accordion.qml">Accordion/Accordion.qml</file>
         <file alias="Badge.qml">Badge/Badge.qml</file>
         <file alias="DropDown.qml">DropDown/DropDown.qml</file>
+        <file alias="ImageLoader.qml">ImageLoader/ImageLoader.qml</file>
+        <file alias="SearchModel.qml">SearchModel/SearchModel.qml</file>
     </qresource>
     <qresource prefix="/Resources"/>
 </RCC>

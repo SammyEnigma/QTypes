@@ -8,11 +8,14 @@
         <file>Badge/Simple.qml</file>
         <file>DropDown/Advanced.qml</file>
         <file>DropDown/Simple.qml</file>
+        <file>ImageLoader/Advanced.qml</file>
+        <file>ImageLoader/Simple.qml</file>
     </qresource>
-    <qresource prefix="/">
+    <qresource prefix="/readme">
         <file>SearchModel/README.md</file>
         <file>Accordion/README.md</file>
         <file>Badge/README.md</file>
         <file>DropDown/README.md</file>
+        <file>ImageLoader/README.md</file>
     </qresource>
 </RCC>

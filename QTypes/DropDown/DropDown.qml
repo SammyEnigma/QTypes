@@ -57,11 +57,14 @@ Menu {
             open()
     }
 
-    onClosed: _private.toggle()
-    onOpened: _private.toggle()
+    onClosed: __private.toggle()
+    onOpened: __private.toggle()
+
+
+    // [private] -------------------------------
 
     QtObject {
-        id: _private
+        id: __private
 
         function rootObject(obj) {
             return obj.parent ? rootObject(obj.parent) : obj

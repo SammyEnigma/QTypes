@@ -7,7 +7,7 @@ This type is a badges, our small count and labeling component.
 
 **Requires**: Qt 5.7 or highter
 
-**Inherited By**: Rectangle
+**Inherits**: Rectangle
 
 
 ## Example
@@ -91,3 +91,7 @@ states use the pre-defined [Material Colors](https://doc.qt.io/qt-5/qtquickcontr
 
 ----
 
+### Including inherited
+ [Rectangle QML Type](https://doc.qt.io/qt-5/qml-qtquick-rectangle.html)
+
+----

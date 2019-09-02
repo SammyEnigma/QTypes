@@ -7,9 +7,9 @@ QAbstractItemModel or a simple list.
 
 **Import Statement**: import "qrc:/QTypes" as QTypes
 
-**Requires**: Qt 5.7 or highter
+**Requires**: Qt 5.12 or highter
 
-**Inherited By**: ListView
+**Inherits**: ListView
 
 
 ## Example
@@ -42,7 +42,7 @@ QAbstractItemModel or a simple list.
 This property holds the set of body Component to selected item
 
 Including inherited properties:
-- index : int  - index of item in list
+- index : int  | index of item in list
 
 ----
 
@@ -52,8 +52,12 @@ This property holds the set of Header Component to each element of accordion
 
 Including inherited properties:
 
-- selected : bool  - item is selected
-- index : int  - index of item in list
+- selected : bool  | item is selected
+- index : int  | index of item in list
 
 ----
 
+### Including inherited
+ [ListView QML Type](https://doc.qt.io/qt-5/qml-qtquick-listview.html)
+
+----

@@ -99,7 +99,7 @@ TextField {
     }
 
 
-    // [Actions] ----------------------------------------------
+    // [Actions] -----------------------------------------------
 
     onFocusChanged: {
         if (focus && text.length === 0) {
@@ -118,7 +118,7 @@ TextField {
             _private.search()
     }
 
-    // [private] type _private -------------------------------
+    // [private] ---------------------------------------------
 
     QtObject {
         id: _private

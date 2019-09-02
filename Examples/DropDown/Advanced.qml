@@ -12,6 +12,28 @@ Rectangle {
     // ###########################################
     // [2][ADD] - DropDown
 
+    Text {
+        text: "DropDown in text"
+        MouseArea {
+            anchors.fill: parent
+            onClicked: dropDownText.toggle()
+
+            QTypes.DropDown {
+                id: dropDownText
+
+                MenuItem {
+                    text: "New..."
+                }
+                MenuItem {
+                    text: "Open..."
+                }
+                MenuItem {
+                    text: "Save"
+                }
+            }
+        }
+    }
+
     Button{
         anchors.centerIn: parent
         text: "Dropdown button"
