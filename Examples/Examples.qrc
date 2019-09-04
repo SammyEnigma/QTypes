@@ -10,6 +10,7 @@
         <file>DropDown/Simple.qml</file>
         <file>ImageLoader/Advanced.qml</file>
         <file>ImageLoader/Simple.qml</file>
+        <file>JumpTo/Simple.qml</file>
     </qresource>
     <qresource prefix="/readme">
         <file>SearchModel/README.md</file>

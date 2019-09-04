@@ -59,16 +59,17 @@ ApplicationWindow {
             }
 
             model: ListModel {
-                ListElement { title: qsTr("SearchModel");            source: "qrc:/Examples/SearchModel/Simple.qml" }
-                ListElement { title: qsTr("SearchModel > Advanced"); source: "qrc:/Examples/SearchModel/Advanced.qml" }
                 ListElement { title: qsTr("Accordion");              source: "qrc:/Examples/Accordion/Simple.qml" }
                 ListElement { title: qsTr("Accordion > Advanced");   source: "qrc:/Examples/Accordion/Advanced.qml" }
                 ListElement { title: qsTr("Badge");                  source: "qrc:/Examples/Badge/Simple.qml" }
                 ListElement { title: qsTr("Badge > Advanced");       source: "qrc:/Examples/Badge/Advanced.qml" }
                 ListElement { title: qsTr("DropDown");               source: "qrc:/Examples/DropDown/Simple.qml" }
                 ListElement { title: qsTr("DropDown > Advanced");    source: "qrc:/Examples/DropDown/Advanced.qml" }
-                ListElement { title: qsTr("ImageLoader");               source: "qrc:/Examples/ImageLoader/Simple.qml" }
-                ListElement { title: qsTr("ImageLoader > Advanced");    source: "qrc:/Examples/ImageLoader/Advanced.qml" }
+                ListElement { title: qsTr("ImageLoader");            source: "qrc:/Examples/ImageLoader/Simple.qml" }
+                ListElement { title: qsTr("ImageLoader > Advanced"); source: "qrc:/Examples/ImageLoader/Advanced.qml" }
+                ListElement { title: qsTr("SearchModel");            source: "qrc:/Examples/SearchModel/Simple.qml" }
+                ListElement { title: qsTr("SearchModel > Advanced"); source: "qrc:/Examples/SearchModel/Advanced.qml" }
+                ListElement { title: qsTr("JumpTo");                 source: "qrc:/Examples/JumpTo/Simple.qml" }
             }
 
             ScrollIndicator.vertical: ScrollIndicator { }
@@ -89,7 +90,7 @@ ApplicationWindow {
                 leftPadding: 1
                 elide: Label.ElideRight
                 color: Material.primary
-                text: "QTypes"
+             //   text: "QTypes"
             }
         }
     }
