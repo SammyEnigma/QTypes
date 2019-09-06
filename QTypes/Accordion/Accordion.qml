@@ -42,12 +42,6 @@ ListView {
     readonly property string version: "1.0.0"
 
     /*!
-          \qmlproperty string Accordion::name
-          string with name of this type
-      */
-    readonly property string name: "Accordion"
-
-    /*!
           \qmlproperty string Accordion::headerComponent
           This property holds the Component to header Accordion of each element
       */

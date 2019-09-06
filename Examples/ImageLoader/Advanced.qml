@@ -13,7 +13,7 @@ ColumnLayout {
     Layout.fillHeight: true
 
     ColumnLayout {
-        Layout.fillWidth: true
+        Layout.alignment: Qt.AlignCenter
         Layout.fillHeight: true
         spacing: 20
 
@@ -30,7 +30,7 @@ ColumnLayout {
             width: 60
             height: 60
             // change the default error component to show some image if error
-            errorImageSource: "qrc:/icons/round_error_black_18dp.png"
+            errorImageSource: "qrc:/Icon/svg/archive.svg"
             source: "https://upload.wik_imedia.org/wikipedia/commons/a/a0/%27Greeley_Panorama%27_from_Opportunity%27s_Fifth_Martian_Winter%2C_PIA15689.jpg"
         }
 

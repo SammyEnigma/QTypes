@@ -58,6 +58,13 @@ Rectangle {
                 text: "Preferences..."
             }
         }
+
+
+        LayoutMirroring.enabled: true
+        QTypes.Icon {
+            name: parent.checked ? "expand_less" : "expand_more"
+            color: parent.checked ? "#FFF" : "#000"
+        }
     }
 
     Button{
@@ -78,6 +85,12 @@ Rectangle {
             MenuItem {
                 text: "Save"
             }
+        }
+
+        LayoutMirroring.enabled: true
+        QTypes.Icon {
+            name: parent.checked ? "expand_less" : "expand_more"
+            color: parent.checked ? "#FFF" : "#000"
         }
     }
 
@@ -100,6 +113,12 @@ Rectangle {
                 text: "Save"
             }
         }
+
+        LayoutMirroring.enabled: true
+        QTypes.Icon {
+            name: parent.checked ? "expand_less" : "expand_more"
+            color: parent.checked ? "#FFF" : "#000"
+        }
     }
 
     Button{
@@ -120,6 +139,13 @@ Rectangle {
             MenuItem {
                 text: "Save"
             }
+        }
+
+
+        LayoutMirroring.enabled: true
+        QTypes.Icon {
+            name: parent.checked ? "expand_less" : "expand_more"
+            color: parent.checked ? "#FFF" : "#000"
         }
     }
 }

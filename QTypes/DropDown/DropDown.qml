@@ -36,12 +36,6 @@ Menu {
       */
     readonly property string version: "1.0.0"
 
-    /*!
-          \qmlproperty array DropDown::name
-          string with name of this type
-      */
-    readonly property string name: "Badge"
-
     // [signals] ------------------------------------
     /*!
           \qmlsignal DropDown::toggle()

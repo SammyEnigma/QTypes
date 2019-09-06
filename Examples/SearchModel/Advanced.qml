@@ -39,6 +39,11 @@ ColumnLayout {
             Layout.fillWidth: true
             onClicked: searchModel.reset()
             text: qsTr("Reset")
+            LayoutMirroring.enabled: true
+
+            QTypes.Icon {
+                name: "search"
+            }
         }
     }
 

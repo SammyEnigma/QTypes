@@ -1,6 +1,9 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.5
 import QtQuick.Controls.Material 2.12
+import QtQuick.Layouts 1.12
+
+import "qrc:/QTypes" as QTypes
 
 /*!
     \qmltype Badge
@@ -16,16 +19,17 @@ import QtQuick.Controls.Material 2.12
     \sa Rectangle
 */
 
-Rectangle {
+Control {
     id: root
     smooth: true
+    implicitWidth: contentItem.implicitWidth + contentItem.implicitHeight
+    implicitHeight: contentItem.implicitHeight + contentItem.implicitHeight
+    padding: contentItem.implicitHeight * 0.5
 
-    radius: height / (pill ? 2 : 6)
-
-    implicitWidth: row.implicitWidth + row.implicitHeight
-    implicitHeight: row.implicitHeight + row.implicitHeight
-
-    color: Material.primary
+    background: Rectangle {
+        color: __private.color
+        radius: root.radius
+    }
 
     // [properties] ----------------------------------------------
 
@@ -36,10 +40,10 @@ Rectangle {
     readonly property string version: "1.0.0"
 
     /*!
-          \qmlproperty array Badge::name
-          string with name of this type
+          \qmlproperty color Badge::color
+           The color of the Badge background (default Material.primary)
       */
-    readonly property string name: "Badge"
+    property alias color: __private.color
 
     /*!
         \qmlproperty alias Badge::label
@@ -75,29 +79,44 @@ Rectangle {
         \qmlproperty alias Badge::counterText
         direct alias to property text in counter label
     */
-    property alias counterText: counterLabel.text
+    property string counterText
 
-    Row {
+    /*!
+        \qmlproperty alias Badge::icon
+        alias to Component type QTypes.Icon
+    */
+    property alias icon: icon
+
+    /*!
+        \qmlproperty Component Badge::radius
+        set Badge radius
+    */
+    property real radius: height / (pill ? 2 : 6)
+
+    contentItem: RowLayout {
         id: row
-        anchors.centerIn: root
-        spacing: counter.visible ? counter.height * 0.5 : 0
+        spacing: counter.visible || icon.visible ? label.height * 0.2 : 0
+        LayoutMirroring.enabled: root.LayoutMirroring.enabled
+        Layout.alignment: Qt.AlignHCenter
 
         Label {
             id: label
-            color: Material.foreground
-            anchors.verticalCenter: parent.verticalCenter
+            color: __private.labelColor
+            Layout.alignment: Qt.AlignVCenter
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
         }
 
         Rectangle {
             id: counter
-            visible: counterLabel.text
+            visible: counterLabel.text.length > 0
             radius: height / (pill ? 2 : 4)
-            anchors.verticalCenter: parent.verticalCenter
+            Layout.alignment: Qt.AlignVCenter
             implicitWidth: counterLabel.implicitWidth + implicitHeight * 0.5
-            implicitHeight: counterLabel.implicitHeight
-            color: label.color
+            implicitHeight: label.implicitHeight
+            color: __private.labelColor
+
+            property alias label: counterLabel
 
             Label {
                 id: counterLabel
@@ -108,8 +127,16 @@ Rectangle {
                     pixelSize: label.font.pixelSize * 0.7
                     bold: true
                 }
-                color: root.color
+                color: __private.color
+                text: counterText
             }
+        }
+
+        QTypes.Icon {
+            id: icon
+            Layout.alignment: Qt.AlignVCenter
+            visible: name.length > 0
+            side: label.height * 1.2
         }
     }
 
@@ -117,83 +144,94 @@ Rectangle {
         State {
             name: "primary"
             PropertyChanges {
-                target: root
-                color: Material.color(Material.counterBlue)
-                label.color: "#fff"
-                counter.color: "#fff"
-                counterLabel.color: "#000"
+                target: __private
+                color: Material.color(Material.LightBlue)
+                labelColor: "#fff"
+                counterColor: "#fff"
+                counterLabelColor: "#000"
             }
         },
         State {
             name: "secondary"
             PropertyChanges {
-                target: root
+                target: __private
                 color: Material.color(Material.Grey)
-                label.color: "#fff"
-                counter.color: "#fff"
-                counterLabel.color: "#000"
+                labelColor: "#fff"
+                counterColor: "#fff"
+                counterLabelColor: "#000"
             }
         },
         State {
             name: "success"
             PropertyChanges {
-                target: root
-                color: Material.color(Material.counterGreen)
-                label.color: "#fff"
-                counter.color: "#fff"
-                counterLabel.color: "#000"
+                target: __private
+                labelColor: "#fff"
+                counterColor: "#fff"
+                counterLabelColor: "#000"
+                color: Material.color(Material.LightGreen)
             }
         },
         State {
             name: "danger"
             PropertyChanges {
-                target: root
+                target: __private
+                labelColor: "#fff"
+                counterColor: "#fff"
+                counterLabelColor: "#000"
                 color: Material.color(Material.Red)
-                label.color: "#fff"
-                counter.color: "#fff"
-                counterLabel.color: "#000"
             }
         },
         State {
             name: "warning"
             PropertyChanges {
-                target: root
+                target: __private
+                labelColor: "#fff"
+                counterColor: "#fff"
+                counterLabelColor: "#000"
                 color: Material.color(Material.Amber)
-                label.color: "#fff"
-                counter.color: "#fff"
-                counterLabel.color: "#000"
             }
         },
         State {
             name: "info"
             PropertyChanges {
-                target: root
+                target: __private
+                labelColor: "#fff"
+                counterColor: "#fff"
+                counterLabelColor: "#000"
                 color: Material.color(Material.Teal)
-                label.color: "#fff"
-                counter.color: "#fff"
-                counterLabel.color: "#000"
             }
         },
         State {
-            name: "counter"
+            name: "light"
             PropertyChanges {
-                target: root
+                target: __private
+                labelColor: "#000"
+                counterColor: "#fff"
+                counterLabelColor: "#000"
                 color: "#eee"
-                label.color: "#000"
-                counter.color: "#fff"
-                counterLabel.color: "#000"
             }
         },
         State {
             name: "dark"
             PropertyChanges {
-                target: root
+                target: __private
+                labelColor: "#fff"
+                counterColor: "#fff"
+                counterLabelColor: "#000"
                 color: "#000"
-                label.color: "#fff"
-                counter.color: "#fff"
-                counterLabel.color: "#000"
             }
         }
     ]
+
+    // [private] -------------------------------
+
+    QtObject {
+        id: __private
+
+        property color color: Material.primary
+        property color labelColor: Material.foreground
+        property color counterColor: Material.foreground
+        property color counterLabelColor: Material.primary
+    }
 }
 

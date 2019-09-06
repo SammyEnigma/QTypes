@@ -4,6 +4,8 @@ import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
 import Qt.labs.settings 1.0
 
+import "qrc:/QTypes" as QTypes
+
 ApplicationWindow {
     id: window
     width: 360
@@ -14,61 +16,96 @@ ApplicationWindow {
     header: ToolBar {
         Material.foreground: "white"
 
-            ToolButton {
-                icon.source: stackView.depth > 1 ? "qrc:/App/icons/back.png" : "qrc:/App/icons/drawer.png"
-                onClicked: {
-                    if (stackView.depth > 1) {
-                        stackView.pop()
-                        listView.currentIndex = -1
-                    } else {
-                        drawer.open()
-                    }
-                }
-            }
+        ToolButton {
+            QTypes.Icon {  name: stackView.depth > 1 ? "chevron_left" : "menu" }
 
-            Label {
-                text: listView.currentItem ? listView.currentItem.text : ""
-                font.pixelSize: 20
-                elide: Label.ElideRight
-                anchors.centerIn: parent
-                Layout.fillWidth: true
+            onClicked: {
+                if (stackView.depth > 1) {
+                    stackView.pop()
+                    listView.currentIndex = -1
+                } else
+                    drawer.open()
             }
+        }
+
+        Label {
+            anchors.centerIn: parent
+            text: listView.currentItem ? listModelMenu.get(listView.currentIndex).title : ""
+        }
     }
 
     Drawer {
         id: drawer
-        width: Math.min(window.width, window.height) / 3 * 2
+        width: Math.max(window.width * 0.7 , 300)
         height: window.height
-        interactive: stackView.depth === 1
 
         ListView {
             id: listView
             focus: true
             currentIndex: -1
             anchors.fill: parent
+            anchors.topMargin: 20
             delegate: ItemDelegate {
+                id: itemDelegate
                 width: parent.width
-                text: model.title
-                highlighted: ListView.isCurrentItem
-                font.pixelSize: 12
-                onClicked: {
+                onClicked: openPage("Simple")
+
+                function openPage(type) {
                     listView.currentIndex = index
-                    stackView.push(model.source)
+                    stackView.push("qrc:/Examples/" + model.title + "/" + type + ".qml")
                     drawer.close()
+                }
+
+                RowLayout {
+                    Layout.fillWidth: true
+                    spacing: 25
+
+                    RowLayout {
+                        Layout.leftMargin: 10
+                        Layout.minimumWidth: 120
+                        spacing: 10
+
+                        QTypes.Icon {
+                            name: model.icon
+                            color: Material.primary
+                            side: 20
+                        }
+
+                        Label {
+                            text: model.title
+                            font.pixelSize: 12
+                        }
+                    }
+
+                    Label {
+                        text:qsTr("Simple")
+                        font.pixelSize: 12
+                        font.bold: true
+                    }
+
+                    Label {
+                        text: qsTr("Advanced")
+                        font.pixelSize: 12
+                        font.bold: true
+
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: itemDelegate.openPage("Advanced")
+                        }
+                    }
                 }
             }
 
-            model: ListModel {
-                ListElement { title: qsTr("SearchModel");            source: "qrc:/Examples/SearchModel/Simple.qml" }
-                ListElement { title: qsTr("SearchModel > Advanced"); source: "qrc:/Examples/SearchModel/Advanced.qml" }
-                ListElement { title: qsTr("Accordion");              source: "qrc:/Examples/Accordion/Simple.qml" }
-                ListElement { title: qsTr("Accordion > Advanced");   source: "qrc:/Examples/Accordion/Advanced.qml" }
-                ListElement { title: qsTr("Badge");                  source: "qrc:/Examples/Badge/Simple.qml" }
-                ListElement { title: qsTr("Badge > Advanced");       source: "qrc:/Examples/Badge/Advanced.qml" }
-                ListElement { title: qsTr("DropDown");               source: "qrc:/Examples/DropDown/Simple.qml" }
-                ListElement { title: qsTr("DropDown > Advanced");    source: "qrc:/Examples/DropDown/Advanced.qml" }
-                ListElement { title: qsTr("ImageLoader");               source: "qrc:/Examples/ImageLoader/Simple.qml" }
-                ListElement { title: qsTr("ImageLoader > Advanced");    source: "qrc:/Examples/ImageLoader/Advanced.qml" }
+            model: listModelMenu
+
+            ListModel {
+                id: listModelMenu
+                ListElement { title: qsTr("SearchModel");     icon: "search" }
+                ListElement { title: qsTr("Accordion");       icon: "view_day" }
+                ListElement { title: qsTr("Badge");           icon: "fiber_new" }
+                ListElement { title: qsTr("DropDown");        icon: "arrow_drop_down_circle" }
+                ListElement { title: qsTr("ImageLoader");     icon: "rotate_right" }
+                ListElement { title: qsTr("Icon");            icon: "crop_original" }
             }
 
             ScrollIndicator.vertical: ScrollIndicator { }
@@ -81,15 +118,24 @@ ApplicationWindow {
         anchors.margins: 10
         initialItem: Pane {
 
-            Label {
+            Row {
                 anchors.centerIn: parent
-                bottomPadding: 40
-                font.pixelSize: 40
-                font.bold: true
-                leftPadding: 1
-                elide: Label.ElideRight
-                color: Material.primary
-                text: "QTypes"
+
+                QTypes.Icon {
+                    name: "view_quilt"
+                    color: Material.primary
+                    side: logo.implicitHeight
+                }
+
+                Label {
+                    id: logo
+                    font.pixelSize: 40
+                    font.bold: true
+                    leftPadding: 1
+                    elide: Label.ElideRight
+                    color: Material.primary
+                    text: "QTypes"
+                }
             }
         }
     }

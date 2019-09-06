@@ -42,13 +42,6 @@ TextField {
       */
     readonly property string version: "1.0.0"
 
-    /*!
-          \qmlproperty array SearchModel::name
-          string with name of this type
-      */
-    readonly property string name: "SearchModel"
-
-
     // [properties] ----------------------------------------------
     /*!
         \qmlproperty variant SearchModel::list

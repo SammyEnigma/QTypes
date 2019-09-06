@@ -1,10 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>icons/back.png</file>
-        <file>icons/drawer.png</file>
-        <file>images/arrow.png</file>
         <file>../README.md</file>
-        <file>icons/round_error_black_18dp.png</file>
     </qresource>
 </RCC>

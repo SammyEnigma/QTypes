@@ -27,13 +27,6 @@ Image {
       */
     readonly property string version: "1.0.0"
 
-    /*!
-          \qmlproperty array SearchModel::name
-          string with name of this type
-      */
-    readonly property string name: "ImageLoader"
-
-
     // [properties] ----------------------------------------------
 
     /*!
@@ -71,7 +64,6 @@ Image {
         Progress text color (default Grey)
     */
     property color loadingComponentProgressColor: Material.color(Material.Grey)
-
 
     onStatusChanged: {
         imageStatusLoader.sourceComponent = undefined

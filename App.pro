@@ -33,10 +33,7 @@ SOURCES += \
 RESOURCES += \
     App/App.qrc \
     Examples/Examples.qrc \
-    qtquickcontrols2.conf \
-    App/icons/back.png \
-    App/icons/drawer.png \
-    App/images/arrow.png
+    qtquickcontrols2.conf
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =

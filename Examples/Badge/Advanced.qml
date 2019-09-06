@@ -46,10 +46,19 @@ ColumnLayout {
         QTypes.Badge {
             text: "Info"
             state: "info"
+
+            icon.name: "info"
+            icon.color: "#FFF"
+
         }
         QTypes.Badge {
             text: "Light"
             state: "light"
+
+            LayoutMirroring.enabled: true
+            icon.name: "help"
+            icon.color: "#000"
+
         }
         QTypes.Badge {
             text: "Dark"
@@ -63,18 +72,23 @@ ColumnLayout {
             counterLabel.text: "23"
         }
         QTypes.Badge {
+            radius: 0                     // badge radius
             color: "#FF5722"              // badge background color
-            label.text: "Advanced"        // Same like alias text: "Advanced"
+            label.text: "Coffees"         // Same like alias text: "Advanced"
             label.font.bold: true         // badge text bold
             label.font.pixelSize: 20      // badge text pixelSize
             label.color: "#EEEEEE"        // badge text background color
-            counterLabel.text: "01"       // counter text same alias counterText: "Advanced"
+            counterLabel.text: "09"       // counter text same alias counterText: "Advanced"
             counterLabel.color: "red"     // counter color text
             counter.border {
                 width: 1                  // counter border width
                 color: "#000"             // counter border color
             }
+            counter.radius: 0             // counter radius
+            icon.name: "local_cafe"
+            icon.color: "#FFF"
         }
+
         QTypes.Badge {
             label.text: "My Mini advanced"
             label.font.bold: true

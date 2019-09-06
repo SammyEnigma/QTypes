@@ -13,11 +13,12 @@ Requires Qt 5.12 or highter
 
 | Type   | Description |
 | ------ | ------ |
-| [Accordion](https://github.com/RicGuerra/QTypes/tree/master/Examples/Accordion)            | Displays collapsible content panels in a limited space.
-| [Badges](https://github.com/RicGuerra/QTypes/tree/master/Examples/Badge)                   | Small text container.
-| [DropDown](https://github.com/RicGuerra/QTypes/tree/master/Examples/DropDown)              | Toggleable, contextual Menu.
-| [ImageLoader](https://github.com/RicGuerra/QTypes/tree/master/Examples/ImageLoader)        | Visual status Image Loader.
-| [SearchModel](https://github.com/RicGuerra/QTypes/tree/master/Examples/SearchModel)        | Simple search in data models.
+| [Accordion](https://github.com/RicGuerra/QTypes/tree/master/QTypes/Accordion)            | Displays collapsible content panels in a limited space.
+| [Badges](https://github.com/RicGuerra/QTypes/tree/master/QTypes/Badge)                   | Small text container.
+| [DropDown](https://github.com/RicGuerra/QTypes/tree/master/QTypes/DropDown)              | Toggleable, contextual Menu.
+| [ImageLoader](https://github.com/RicGuerra/QTypes/tree/master/QTypes/ImageLoader)        | Visual status Image Loader.
+| [Icon](https://github.com/RicGuerra/QTypes/tree/master/QTypes/Icon)                      | Material Icons.
+| [SearchModel](https://github.com/RicGuerra/QTypes/tree/master/QTypes/SearchModel)        | Simple search in data models.
 
 
 Quick start
