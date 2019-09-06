@@ -68,6 +68,8 @@ Item {
     QtObject {
         id: __private
 
+        property string file: "qrc:/Icon/png/" + (side > 24 ? "48" : "24") + "/" + name +".png"
+
         function updateSide() {
             if (side == 0)
                 side = Math.max(Math.min(root.parent.width, root.parent.height), 16)
@@ -78,7 +80,7 @@ Item {
             {
                 if (root.parent instanceof AbstractButton) {
                     root.parent.icon.source = ""
-                    root.parent.icon.source = "qrc:/Icon/svg/" + name +".svg"
+                    root.parent.icon.source = __private.file
                     root.parent.icon.color = root.color
                 } else {
                     loader.sourceComponent  = undefined
@@ -99,7 +101,7 @@ Item {
 
             Image {
                 id: maskIcon
-                source: "qrc:/Icon/svg/" + name + ".svg"
+                source: __private.file
                 anchors.fill: parent
                 smooth: true
                 visible: false
