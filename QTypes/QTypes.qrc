@@ -6,6 +6,7 @@
         <file alias="ImageLoader.qml">ImageLoader/ImageLoader.qml</file>
         <file alias="SearchModel.qml">SearchModel/SearchModel.qml</file>
         <file alias="Icon.qml">Icon/Icon.qml</file>
+        <file alias="CalendarRange.qml">CalendarRange/CalendarRange.qml</file>
     </qresource>
     <qresource prefix="/readme">
         <file>SearchModel/README.md</file>

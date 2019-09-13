@@ -12,5 +12,6 @@
         <file>ImageLoader/Simple.qml</file>
         <file>Icon/Simple.qml</file>
         <file>Icon/Advanced.qml</file>
+        <file>CalendarRange/Advanced.qml</file>
     </qresource>
 </RCC>

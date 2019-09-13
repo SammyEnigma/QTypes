@@ -106,6 +106,7 @@ ApplicationWindow {
                 ListElement { title: qsTr("DropDown");        icon: "arrow_drop_down_circle" }
                 ListElement { title: qsTr("ImageLoader");     icon: "rotate_right" }
                 ListElement { title: qsTr("Icon");            icon: "crop_original" }
+                ListElement { title: qsTr("CalendarRange");   icon: "calendar" }
             }
 
             ScrollIndicator.vertical: ScrollIndicator { }
@@ -119,6 +120,7 @@ ApplicationWindow {
         initialItem: Pane {
 
             Row {
+                visible: false
                 anchors.centerIn: parent
 
                 QTypes.Icon {
